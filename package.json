@@ -1,0 +1,23 @@
+{
+  "name": "@vendoor/what-version",
+  "version": "1.0.0",
+  "description": "CLI emitting the version of an application or project.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vendoor/what-version.git"
+  },
+  "author": "Vendoor Development Team",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/vendoor/what-version/issues"
+  },
+  "homepage": "https://github.com/vendoor/what-version#readme",
+  "dependencies": {
+    "execa": "4.0.0",
+    "yargs": "15.3.1"
+  }
+}
