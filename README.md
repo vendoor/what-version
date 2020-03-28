@@ -3,7 +3,7 @@
 Emits the version of an application or project.
 
 ~~~~
-npx @vendoor/what-version -f git.hash git.branch npm.version
+npx -q @vendoor/what-version -f git.hash git.branch npm.version
 ~~~~
 
 Example output for the above command on the stdout:
@@ -21,13 +21,13 @@ Example output for the above command on the stdout:
 `what-version` has a single command line option which can be used to specify the desired fields. You may specify `-f` once:
 
 ~~~~
-npx @vendoor/what-version -f npm.version git.branch
+npx -q @vendoor/what-version -f npm.version git.branch
 ~~~~
 
 Or you can specify `-f` multiple times:
 
 ~~~~
-npx @vendoor/what-version -f npm.version -f git.branch
+npx -q @vendoor/what-version -f npm.version -f git.branch
 ~~~~
 
 ## Library Usage
