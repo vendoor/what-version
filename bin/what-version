@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+const cliPath = `${__dirname}/../src/index`;
+
+require(cliPath)
+  .run()

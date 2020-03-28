@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "CLI emitting the version of an application or project.",
   "main": "src/index.js",
+  "bin": {
+    "what-version": "bin/what-version"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
