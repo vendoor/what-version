@@ -6,6 +6,16 @@ Emits the version of an application or project.
 npx @vendoor/what-version -f git.hash git.branch npm.version
 ~~~~
 
+Example output for the above command on the stdout:
+
+~~~~JSON
+{
+  "git.hash": "7c857e22c47d2a85c7407632d0b33a498778639c",
+  "git.branch": "master",
+  "npm.version": "1.0.0"
+}
+~~~~
+
 ## Usage
 
 `what-version` has a single command line option which can be used to specify the desired fields. The available fields are the following:
