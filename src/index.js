@@ -1,53 +1,46 @@
 const path = require('path');
 
+const availableFields = require('./fields').available;
 
-async function run() {
-    const { field } = require('yargs')
-        .option('field', {
-            alias: 'f',
-            type: 'array',
-            desc: 'Field to extract from the current directory. Can be defined multiple times.',
-            choices: [
-                'git.branch',
-                'git.hash',
-                'npm.version'
-            ],
-            required: true
-        })
-        .strict(true)
-        .argv
-    
-    const values = await extractFields(field);
 
-    outputValues(values);
+function ensureAllFieldsAreAvailable(fields) {
+    const unknown = [];
+
+    fields.forEach(name => {
+        if (!availableFields.includes(name)) {
+            unknown.push(name);
+        };
+    });
+
+    if (unknown.length > 0) {
+        throw new Error('The following fields are unknown: ' + unknown.join(', '));
+    }
 };
 
-function outputValues(values) {
-    console.log(JSON.stringify(values, null, 2));
+function extractorForField(name) {
+    const segments = name.split('.');
+
+    const modulePath = path.join(__dirname, ...segments);
+
+    return require(modulePath);
 };
 
-async function extractFields(fields) {
+async function query(fields, cwd) {
+    ensureAllFieldsAreAvailable(fields);
+
     const data = {};
 
     for (const name of fields) {
-        data[name] = await extractField(name);
+        const extractor = extractorForField(name);
+
+        data[name] = await extractor(name, cwd);
     }
 
     return data;
 };
 
-async function extractField(name) {
-    const segments = name.split('.');
-
-    const modulePath = path.join(__dirname, ...segments);
-
-    const extractor = require(modulePath);
-
-    return await extractor();
-};
-
 module.exports = {
-    run
+    query
 };
 
 
