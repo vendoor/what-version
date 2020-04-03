@@ -23,7 +23,4 @@
     "execa": "4.0.0",
     "yargs": "15.3.1"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  }
 }
