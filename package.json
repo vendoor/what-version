@@ -1,6 +1,6 @@
 {
   "name": "@vendoor/what-version",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "CLI emitting the version of an application or project.",
   "main": "src/index.js",
   "bin": {
@@ -22,5 +22,5 @@
   "dependencies": {
     "execa": "4.0.0",
     "yargs": "15.3.1"
-  },
+  }
 }
